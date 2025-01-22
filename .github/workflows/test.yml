@@ -27,6 +27,8 @@ jobs:
         run: python -m pytest
       - name: "Run coverage"
         run: python -m coverage run -m pytest
+      - name: "Upload Artifact"
+        run: actions/upload-artifact@v2
 #    needs: style
 #    runs-on: ubuntu-latest
 #    env:
