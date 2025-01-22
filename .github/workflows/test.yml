@@ -22,11 +22,11 @@ jobs:
         with:
           python-version: '3.8'
       - name: "Install pytest and coverage"
-        run: pip install pytest coverage
+        run: pip install pytest coverage numpy matplotlib
       - name: "Run test"
         run: python -m pytest
       - name: "Run coverage"
-        run: python -m coverage
+        run: python -m coverage run -m pytest
 #    needs: style
 #    runs-on: ubuntu-latest
 #    env:
