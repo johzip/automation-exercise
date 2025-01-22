@@ -36,6 +36,7 @@ jobs:
           if-no-files-found: error
           include-hidden-files: true
   coverage_report:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
