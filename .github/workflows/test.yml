@@ -28,7 +28,11 @@ jobs:
       - name: "Run coverage"
         run: python -m coverage run -m pytest
       - name: "Upload Artifact"
-        run: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2
+        with:
+          name: "coverage"
+          path: ".\.coverage"
+          include-hidden-files: true
 #    needs: style
 #    runs-on: ubuntu-latest
 #    env:
