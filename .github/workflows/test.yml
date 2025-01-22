@@ -32,6 +32,8 @@ jobs:
         with:
           name: "coverage"
           path: .coverage
+          retention-days: 1
+          if-no-files-found: error
           include-hidden-files: true
 #    needs: style
 #    runs-on: ubuntu-latest
