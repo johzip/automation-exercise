@@ -48,7 +48,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: "coverage"
-          path: .coverage
+          path: .
       - name: "Run Coverage report"
         run: python -m coverage report
       - name: "Run coverage xml"
