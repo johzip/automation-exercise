@@ -35,20 +35,22 @@ jobs:
           retention-days: 1
           if-no-files-found: error
           include-hidden-files: true
-#    needs: style
-#    runs-on: ubuntu-latest
-#    env:
-#      PROJECT_NAME: "Automation Lecture"
-#    steps:
-#      - name: "Run build phase"
-#        run: echo "Building project $PROJECT_NAME"
-#  test:
-#    needs: build
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/setup-python@v2
-#        with:
-#          python-version: '3.8'
-#      - name: "Run unittest"
-#        run: python -m unittest
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      - name: "Install coverage"
+        run: pip install coverage
+      - name: "Download Artifact"
+        uses: actions/download-artifact@v4
+        with:
+          name: "coverage"
+          path: .coverage
+      - name: "Run Coverage report"
+        run: python -m coverage report
+      - name: "Run coverage xml"
+        run: python -m coverage xml
+  
