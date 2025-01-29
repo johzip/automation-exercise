@@ -54,4 +54,10 @@ jobs:
         run: python -m coverage report
       - name: "Run coverage xml"
         run: python -m coverage xml
+      - name: Upload Coverage XML Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-xml
+          path: coverage.xml
+          retention-days: 14
   
